@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoastMyHabit V2.0 | Cyber Default Tribunal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes alert-pulse {
+      0%, 100% { border-color: rgba(225, 29, 72, 0.4); box-shadow: 0 0 15px rgba(225, 29, 72, 0.2); }
+      50% { border-color: rgba(225, 29, 72, 1); box-shadow: 0 0 30px rgba(225, 29, 72, 0.6); }
+    }
+    .tribunal-card { animation: alert-pulse 2s infinite ease-in-out; }
+    .stamp-badge { transform: rotate(-8deg); }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-100 min-h-screen font-sans antialiased pb-24">
+
+  <!-- Header -->
+  <header class="bg-[#1e293b] border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-base shadow-sm">
+          R
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-black tracking-tight text-white text-base">RoastMyHabit</span>
+            <span class="text-[9px] bg-rose-500/20 text-rose-400 font-extrabold px-1.5 py-0.5 rounded border border-rose-500/30">V2.0 TRIBUNAL</span>
+          </div>
+          <span class="text-[10px] text-slate-400 block -mt-0.5">Secure Escrow & Accountability Protocol</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-slate-300">Vault Balance: <strong class="text-white">$0.00</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-xl mx-auto px-4 pt-6 space-y-6">
+
+    <!-- Step 1: Commitment Form (FinTech Style) -->
+    <section id="setupSection" class="bg-[#1e293b] border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+      <div class="border-b border-slate-800 pb-4">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 bg-rose-500/10 px-2.5 py-1 rounded-md mb-2 border border-rose-500/20">
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i> Zero-Tolerance Binding Contract
+        </div>
+        <h2 class="text-lg font-bold text-white">Initialize Habit Escrow</h2>
+        <p class="text-xs text-slate-400 mt-1">Miss your deadline = Instant collateral seizure & cross-cultural public roast.</p>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">1. Target Habit Category</label>
+          <select id="habitCategory" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 transition">
+            <option value="🏋️ Fitness">🏋️ Fitness & Gym Protocol</option>
+            <option value="🥗 Clean Diet">🥗 Clean Diet & Nutrition</option>
+            <option value="💻 Deep Work">💻 Deep Work & Code Sprint</option>
+            <option value="🌅 Early Rise">🌅 Early Rise & Wake Up</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">2. Specific Goal (Max 25 chars)</label>
+          <input id="habitTask" type="text" maxlength="25" value="Run 5km before 7:00 PM" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 transition" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">3. Select Stake Collateral</label>
+          <div class="grid grid-cols-3 gap-2.5">
+            <button type="button" onclick="selectTier(1, 5)" class="tier-btn active border-2 border-rose-500 bg-rose-500/10 rounded-xl p-3 text-center transition" data-tier="1">
+              <div class="text-[11px] font-semibold text-slate-400">1-Day Blitz</div>
+              <div class="text-base font-extrabold text-rose-400">$5.00</div>
+            </button>
+            <button type="button" onclick="selectTier(7, 10)" class="tier-btn border border-slate-700 bg-slate-900 hover:border-slate-600 rounded-xl p-3 text-center transition" data-tier="7">
+              <div class="text-[11px] font-semibold text-slate-400">7-Day Streak</div>
+              <div class="text-base font-extrabold text-slate-200">$10.00</div>
+            </button>
+            <button type="button" onclick="selectTier(30, 20)" class="tier-btn border border-slate-700 bg-slate-900 hover:border-slate-600 rounded-xl p-3 text-center transition" data-tier="30">
+              <div class="text-[11px] font-semibold text-slate-400">30-Day Iron</div>
+              <div class="text-base font-extrabold text-slate-200">$20.00</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">4. Select Cultural Tribunal Judge</label>
+          <select id="roastPersona" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 transition">
+            <option value="sichuan">🌶️ Sichuan Fierce Auntie (Global Roast)</option>
+            <option value="dongbei">❄️ Dongbei Savage Bro (Reality Check)</option>
+            <option value="hk">🥋 Hong Kong Cha Chaan Teng Chef (Sarcasm)</option>
+            <option value="tiger">🐯 Asian Tiger Mother (Ultimate PUA)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1.5">5. Hostage Contact (Friend Email for Alert)</label>
+          <input id="hostageEmail" type="email" value="bestie@mock.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500 transition" />
+        </div>
+      </div>
+
+      <button onclick="lockStakes()" class="w-full bg-rose-600 hover:bg-rose-500 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4"></i> Lock Collateral & Sign Escrow
+      </button>
+    </section>
+
+    <!-- Step 2: Active Contract Dashboard -->
+    <section id="activeBoardSection" class="hidden bg-[#1e293b] border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <span class="inline-flex items-center gap-1 text-[11px] uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded font-bold border border-emerald-500/20">
+            Escrow Active
+          </span>
+          <h3 id="boardHabitTitle" class="text-lg font-bold text-white mt-1">Run 5km before 7:00 PM</h3>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-slate-400 font-medium">Staked Risk</div>
+          <div id="boardStakeVal" class="text-xl font-black text-rose-400">$5.00</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <button onclick="alert('Proof Verified! Streak Maintained.')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-sm transition shadow">
+          Submit Proof
+        </button>
+        <button onclick="triggerDefaultNotice()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 rounded-xl text-sm transition shadow">
+          Trigger Default (Test Trial)
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 3: Cyber Default Notice & Tribunal Card (The Meme Asset) -->
+    <section id="trialSection" class="hidden bg-[#1e293b] border-2 border-rose-600 rounded-2xl p-5 shadow-2xl tribunal-card space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <span class="text-[11px] font-black text-rose-500 uppercase tracking-wider">⚡ TRIBUNAL VERDICT: DEFAULTED</span>
+          <h3 class="text-base font-black text-white">Cyber Default Notice #2026-X</h3>
+        </div>
+        <button onclick="resetToSetup()" class="text-xs text-slate-400 hover:text-white underline">
+          ← New Contract
+        </button>
+      </div>
+
+      <!-- The Notice Card (Optimized for Screenshot & Sharing) -->
+      <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 relative overflow-hidden space-y-4 shadow-inner">
+        <!-- Stamp Overlay -->
+        <div class="absolute right-3 top-3 z-10 stamp-badge border-4 border-rose-600/80 text-rose-500 px-3 py-1 font-black text-xs uppercase tracking-widest rounded shadow-lg bg-black/40 backdrop-blur-sm pointer-events-none">
+          CREDIT FROZEN
+        </div>
+
+        <!-- Judge Header Info -->
+        <div class="flex items-center gap-3">
+          <img id="judgeAvatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Judge" class="w-14 h-14 rounded-xl object-cover border-2 border-rose-500/50 shadow" />
+          <div>
+            <div id="judgeNameTag" class="text-xs font-extrabold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded inline-block">
+              🌶️ Sichuan Fierce Auntie
+            </div>
+            <div class="text-xs text-slate-400 mt-1">Target: <strong id="noticeHabitName" class="text-white">Run 5km</strong></div>
+            <div class="text-[11px] font-mono text-rose-400 font-bold">SEIZED COLLATERAL: <span id="noticeStakeVal">$5.00</span></div>
+          </div>
+        </div>
+
+        <!-- Roast Quote Box -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 space-y-2">
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider font-bold">Official Tribunal Ruling:</div>
+          <p id="roastQuoteZh" class="text-xs font-bold text-yellow-300 leading-relaxed"></p>
+          <p id="roastQuoteEn" class="text-xs text-slate-200 font-medium leading-relaxed italic border-t border-slate-800 pt-2"></p>
+        </div>
+      </div>
+
+      <!-- Viral Sharing Actions -->
+      <div class="space-y-2.5">
+        <button onclick="shareNotice()" class="w-full bg-[#1877F2] hover:bg-[#166fe5] text-white font-bold py-3 px-4 rounded-xl text-sm transition shadow-md flex items-center justify-center gap-2">
+          <i data-lucide="share-2" class="w-4 h-4"></i> Share Default Notice to IG / X / WhatsApp
+        </button>
+        <p class="text-[10px] text-center text-slate-400">Share your failure to community jury to appeal or double the penalty.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    let selectedDays = 1;
+    let selectedAmount = 5;
+
+    // Rich multilingual roast quote database
+    const TRIBUNAL_DATABASE = {
+      sichuan: {
+        tag: '🌶️ Sichuan Fierce Auntie',
+        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
+        zh: '“你个宝批龙！朋友圈Flag立得比电线杆还高，结果第一天就趴在床上装死挺尸！押金老娘没收了，拿去买辣椒面！”',
+        en: '"You set goals higher than utility poles, yet on Day 1 you rot in bed like a corpse! Deposit confiscated for spicy street snacks!"'
+      },
+      dongbei: {
+        tag: '❄️ Dongbei Savage Bro',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+        zh: '“老铁咋回事儿啊？昨晚吹牛逼震天响，今天一交作业就尿裤子？这点小破事都干不明白，真完犊子！”',
+        en: '"What happened to all that big talk last night? Today when it is time to deliver, you fold completely. Total washout!"'
+      },
+      hk: {
+        tag: '🥋 HK Cha Chaan Teng Chef',
+        avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80',
+        zh: '“搞咩鬼啊你？蛇王第一名！三分钟热度都冇，少少苦都捱唔住，返屋企食自己啦！”',
+        en: '"What on earth are you doing?! Slacking off like a dead fish. You cannot last three minutes—go home and eat lemons!"'
+      },
+      tiger: {
+        tag: '🐯 Asian Tiger Mother',
+        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+        zh: '“看看你这个出息！你表弟Timmy 12岁就已经在做外科手术了。你连个打卡都坚持不下，生块叉烧好过生你！”',
+        en: '"Look at yourself! Your cousin Timmy was doing surgery at age 12. Why did I give birth to such a useless char siu!"'
+      }
+    };
+
+    function selectTier(days, amount) {
+      selectedDays = days;
+      selectedAmount = amount;
+      document.querySelectorAll('.tier-btn').forEach(btn => {
+        if(parseInt(btn.dataset.tier) === days) {
+          btn.className = 'tier-btn active border-2 border-rose-500 bg-rose-500/10 rounded-xl p-3 text-center transition';
+          btn.querySelector('div:last-child').className = 'text-base font-extrabold text-rose-400';
+        } else {
+          btn.className = 'tier-btn border border-slate-700 bg-slate-900 hover:border-slate-600 rounded-xl p-3 text-center transition';
+          btn.querySelector('div:last-child').className = 'text-base font-extrabold text-slate-200';
+        }
+      });
+    }
+
+    function lockStakes() {
+      const task = document.getElementById('habitTask').value.trim();
+      document.getElementById('boardHabitTitle').textContent = task;
+      document.getElementById('boardStakeVal').textContent = '$' + selectedAmount + '.00';
+      document.getElementById('setupSection').classList.add('hidden');
+      document.getElementById('activeBoardSection').classList.remove('hidden');
+    }
+
+    function resetToSetup() {
+      document.getElementById('trialSection').classList.add('hidden');
+      document.getElementById('setupSection').classList.remove('hidden');
+    }
+
+    function triggerDefaultNotice() {
+      const key = document.getElementById('roastPersona').value;
+      const task = document.getElementById('habitTask').value.trim();
+      const data = TRIBUNAL_DATABASE[key];
+
+      document.getElementById('judgeNameTag').textContent = data.tag;
+      document.getElementById('judgeAvatar').src = data.avatar;
+      document.getElementById('noticeHabitName').textContent = task;
+      document.getElementById('noticeStakeVal').textContent = '$' + selectedAmount + '.00';
+      document.getElementById('roastQuoteZh').textContent = data.zh;
+      document.getElementById('roastQuoteEn').textContent = data.en;
+
+      document.getElementById('activeBoardSection').classList.add('hidden');
+      document.getElementById('trialSection').classList.remove('hidden');
+    }
+
+    function shareNotice() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Cyber Default Notice link copied! Ready to share for community trial.');
+    }
+  </script>
+</body>
+</html>
